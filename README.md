@@ -12,7 +12,26 @@ Pour le moment il n'existe pas de paquet automatisant l'installation d'iPXE et d
 
 ## mise en place iPXE
 
-* télécharger `ipxe.lkrn` sur https://rom-o-matic.eu/ et le copier dans `/tftpboot/`
+### installations par les paquets officiels
+
+On installe le paquet ipxe. `apt-get install ipxe` Les fichiers sont mis aux emplacement standard Debian, il faudra donc s'adapter :
+
+```
+/boot/ipxe.efi
+/boot/ipxe.lkrn
+/etc/grub.d/20_ipxe
+/usr/lib/ipxe/ipxe.efi
+/usr/lib/ipxe/ipxe.iso
+/usr/lib/ipxe/ipxe.lkrn
+/usr/lib/ipxe/ipxe.pxe
+/usr/lib/ipxe/undionly.kkpxe
+/usr/lib/ipxe/undionly.kpxe
+/usr/share/doc/ipxe/changelog.Debian.gz
+/usr/share/doc/ipxe/copyright
+```
+
+
+* faire un lien entre `/boot/` et `/tftpboot/`
 * créer le dossier `/var/www/se3/ipxe` et créer un fichier minimal `boot.php` sur ce modèle : 
 ```
 <?php
