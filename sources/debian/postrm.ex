@@ -1,5 +1,5 @@
 #!/bin/sh
-# postrm script for se3-ipxe
+# postrm script for sambaedu-ipxe
 #
 # see: dh_installdeb(1)
 

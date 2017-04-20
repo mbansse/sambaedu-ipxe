@@ -1,4 +1,4 @@
 #
-# Regular cron jobs for the se3-ipxe package
+# Regular cron jobs for the sambaedu-ipxe package
 #
-0 4	* * *	root	[ -x /usr/bin/se3-ipxe_maintenance ] && /usr/bin/se3-ipxe_maintenance
+0 4	* * *	root	[ -x /usr/bin/sambaedu-ipxe_maintenance ] && /usr/bin/sambaedu-ipxe_maintenance

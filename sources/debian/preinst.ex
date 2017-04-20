@@ -1,5 +1,5 @@
 #!/bin/sh
-# preinst script for se3-ipxe
+# preinst script for sambaedu-ipxe
 #
 # see: dh_installdeb(1)
 

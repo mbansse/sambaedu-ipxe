@@ -1,5 +1,5 @@
-se3-ipxe (0.1-1) unstable; urgency=low
+sambaedu-ipxe (0.1-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
 
- -- root <root@debian-se3.stage.ac-rouen.fr>  Tue, 18 Apr 2017 12:28:10 +0200
+ -- root <root@debian-se3.dev>  Tue, 18 Apr 2017 12:28:10 +0200
