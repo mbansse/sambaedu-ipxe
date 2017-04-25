@@ -12,6 +12,9 @@ Pour le moment il n'existe pas de paquet automatisant l'installation d'iPXE et d
 
 ## mise en place iPXE
 
+
+
+
 ### installations par les paquets officiels
 
 On installe le paquet ipxe. `apt-get install ipxe` Les fichiers sont mis aux emplacement standard Debian, il faudra donc s'adapter :
@@ -32,6 +35,22 @@ On installe le paquet ipxe. `apt-get install ipxe` Les fichiers sont mis aux emp
 
 
 * faire un lien entre `/boot/` et `/tftpboot/`
+
+** Problème : Cette version est tout de même assez ancienne et par ailleurs, certaine soptions utiles ne sont pas activées comme par exemple la commande `console`**
+
+### Mise en place à la mano 
+
+Mise ee place avec le paquet sambaedu-ipxe d'une image compilée en ligne avec https://rom-o-matic.eu/
+
+Avec les options correctes et le clavier fr :
+<a href="https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&" target="_blank">https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&</a>
+
+
+
+### Le fichier de de conf ipxe
+
+
+#### Le cas de l'installation de windows via ipxe :
 * créer le dossier `/var/www/se3/ipxe` et créer un fichier minimal `boot.php` sur ce modèle : 
 ```
 <?php
@@ -56,6 +75,8 @@ boot
 * eventuellement il est possible d'utiliser le partage `\\se3\install\os` pour mettre les fichiers windows nécessaires aux stades suivants de l'installation windows
 
 Il s'agit de la configuration minimale, la page `boot.php` récupère l'adresse mac et peut donc servir des fichier ipxe personnalisés, cela sera l'objectif des nouveaux paquets.
+
+
 
 
 # Notes, modifications à envisager : 
