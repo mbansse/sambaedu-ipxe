@@ -47,7 +47,15 @@ Avec les options correctes et le clavier fr :
 
 
 
-### Le fichier de de conf ipxe
+### Le fichier de conf ipxe
+
+De nombreuse possibilités sont offertes, comme le support des variables, la creéation de menu graphiques, etc.....
+
+La syntaxe change pas mal par rapport à pxelinux.
+
+Concernant les menu et le fonctionnement d'ipxe en général, ce site explique bien les choses :
+<a href="http://wiki.mbirth.de/know-how/software/ipxe-network-boot.html" target="_blank">http://wiki.mbirth.de/know-how/software/ipxe-network-boot.html</a>
+
 
 
 #### Le cas de l'installation de windows via ipxe :
