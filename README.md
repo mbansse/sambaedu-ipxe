@@ -6,6 +6,8 @@ Ce module a vocation à remplacer l'actuel se3-clonage devrait être remplacé p
 
 Avec la version 0.71 de `se3-dhcp` l'infrastructure est en place pour pouvoir booter en iPXE. Il suffit de taper `ipxe` au boot prompt sur le client suite au démarrage pxe.
 
+on peut aussi changer la variable de conf `$dhcp_unatt_filename` de `pxelinux.0` en `ipxe.lkrn`  c'est elle qui permet de basculer en ipxe dans la conf dhcp lors de l'écriture des reservations.
+
 Pour le moment il n'existe pas de paquet automatisant l'installation d'iPXE et des différents systèmes, l'installation doit se faire à la main.
 
 
