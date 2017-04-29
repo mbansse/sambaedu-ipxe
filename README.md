@@ -6,7 +6,7 @@ Ce module a vocation à remplacer l'actuel se3-clonage devrait être remplacé p
 
 Avec la version 0.71 de `se3-dhcp` l'infrastructure est en place pour pouvoir booter en iPXE. Il suffit de taper `ipxe` au boot prompt sur le client suite au démarrage pxe.
 
-on peut aussi changer la variable de conf `$dhcp_unatt_filename` de `pxelinux.0` en `ipxe.lkrn`  c'est elle qui permet de basculer en ipxe dans la conf dhcp lors de l'écriture des reservations.
+on peut aussi changer la variable de conf `$dhcp_unatt_filename` de `pxelinux.0` en `undionly.kpxe`  c'est elle qui permet de basculer en ipxe dans la conf dhcp lors de l'écriture des reservations.
 
 Pour le moment il n'existe pas de paquet automatisant l'installation d'iPXE et des différents systèmes, l'installation doit se faire à la main.
 
@@ -121,7 +121,7 @@ les paquets contiennnent
 - un template ipxe si besoin spécifique (on peut mettre pas mal de logique dedans, en particulier il y a plein de choses intéressantes pour les preseed, pour les clients légers...)
 
 
-Pour la migration de pxelinux vers ipxe, il suffit de comfigurer le dhcp, quand on veut switcher completement en ipxe : remplacer $unattend_file qui vaut pxelinux.0 par ipxe.lkrn et c'est tout !
+Pour la migration de pxelinux vers ipxe, il suffit de comfigurer le dhcp, quand on veut switcher completement en ipxe : remplacer $unattend_file qui vaut pxelinux.0 par `undionly.kpxe` et c'est tout !
 
 
 On peut donc envisager de complètement séparer le  nouveau module du module clonage actuel. les deux peuvent cohabiter dans un premier temps...
