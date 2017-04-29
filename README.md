@@ -21,6 +21,8 @@ Pour le moment il n'existe pas de paquet automatisant l'installation d'iPXE et d
 
 On installe le paquet ipxe. `apt-get install ipxe` Les fichiers sont mis aux emplacement standard Debian, il faudra donc s'adapter :
 
+En version Stretch, le paquet est à jour : 
+
 ```
 /boot/ipxe.efi
 /boot/ipxe.lkrn
@@ -38,7 +40,8 @@ On installe le paquet ipxe. `apt-get install ipxe` Les fichiers sont mis aux emp
 
 * faire un lien entre `/boot/` et `/tftpboot/`
 
-** Problème : Cette version est tout de même assez ancienne et par ailleurs, certaine soptions utiles ne sont pas activées comme par exemple la commande `console`**
+
+**Problème : En Wheezy la version est tout de même assez ancienne et par ailleurs, certaine soptions utiles ne sont pas activées comme par exemple la commande `console`**
 
 ### Mise en place à la mano 
 
