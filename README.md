@@ -45,11 +45,12 @@ En version Stretch, le paquet est à jour :
 
 ### Mise en place à la mano 
 
-Mise ee place avec le paquet sambaedu-ipxe d'une image compilée en ligne avec https://rom-o-matic.eu/
+* Directement dans le paquet sambaedu-ipxe, image compilée en ligne <a href="https://rom-o-matic.eu/" target="_blank">https://rom-o-matic.eu/</a>
 
-Avec les options correctes et le clavier fr :
-<a href="https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&" target="_blank">https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&</a>
+ * Version ipxe Avec les options correctes et le clavier fr 
+<a href="https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&" target="_blank">Image version ipxe personnalisée</a>
 
+* Version kpxe permettant le boot ipxe sur les anciennes machines (chainload) <a href="https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.kpxe&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&" target="_blank">Image version undionly personnalisée</a>
 
 
 ### Le fichier de conf ipxe
@@ -58,10 +59,12 @@ De nombreuse possibilités sont offertes, comme le support des variables, la cre
 
 La syntaxe change pas mal par rapport à pxelinux.
 
-Concernant les menu et le fonctionnement d'ipxe en général, ce site explique bien les choses :
-<a href="http://wiki.mbirth.de/know-how/software/ipxe-network-boot.html" target="_blank">http://wiki.mbirth.de/know-how/software/ipxe-network-boot.html</a>
+* Menu et le fonctionnement d'ipxe en général
+<a href="http://wiki.mbirth.de/know-how/software/ipxe-network-boot.html" target="_blank">Ressources sur la mise en place de menus avancés</a>
 
-
+* Gérer la conf en php <a href="
+http://brandon.penglase.net/index.php?title=PXE_Booting_and_Utilities_Menu" target="_blank">
+Site expliquant la conf de A à Z et regorgeant d'exemples</a>
 
 #### Le cas de l'installation de windows via ipxe :
 * créer le dossier `/var/www/se3/ipxe` et créer un fichier minimal `boot.php` sur ce modèle : 
