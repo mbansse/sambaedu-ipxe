@@ -66,6 +66,13 @@ La syntaxe change pas mal par rapport à pxelinux.
 http://brandon.penglase.net/index.php?title=PXE_Booting_and_Utilities_Menu" target="_blank">
 Site expliquant la conf de A à Z et regorgeant d'exemples</a>
 
+
+* Gestion de l'ensemble sous php avec support de l'authentification et avec des fonctions<a href="
+https://github.com/skunkie/ipxe-phpmenu/blob/master/README.md" target="_blank">
+Dépot github du deéveloppeur de la solution</a>
+<b>C'est exactement quelque chose de ce type qu'il nous faut !</b>
+
+
 #### Le cas de l'installation de windows via ipxe :
 * créer le dossier `/var/www/se3/ipxe` et créer un fichier minimal `boot.php` sur ce modèle : 
 ```
