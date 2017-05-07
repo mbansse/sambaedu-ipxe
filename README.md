@@ -45,31 +45,26 @@ En version Stretch, le paquet est à jour :
 
 ### Mise en place à la mano 
 
-* Directement dans le paquet sambaedu-ipxe, image compilée en ligne <a href="https://rom-o-matic.eu/" target="_blank">https://rom-o-matic.eu/</a>
+* Directement dans le paquet sambaedu-ipxe, image compilée en ligne [https://rom-o-matic.eu](https://rom-o-matic.eu)
 
- * Version ipxe Avec les options correctes et le clavier fr 
-<a href="https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&" target="_blank">Image version ipxe personnalisée</a>
+* [Version ipxe Avec les options correctes et le clavier fr ici](https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/PARAM_CMD:=1&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&)
 
-* Version kpxe permettant le boot ipxe sur les anciennes machines (chainload) <a href="https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.kpxe&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&" target="_blank">Image version undionly personnalisée</a>
+* [Version kpxe ou undionly avec les bonnes options permettant le boot ipxe sur les anciennes machines (chainload)](https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.kpxe&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/PARAM_CMD:=1&CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&)
 
 
 ### Le fichier de conf ipxe
 
 De nombreuse possibilités sont offertes, comme le support des variables, la creéation de menu graphiques, etc.....
 
-La syntaxe change pas mal par rapport à pxelinux.
+La syntaxe change pas mal par rapport à pxelinux. Voici quelques ressources utiles :
 
-* Menu et le fonctionnement d'ipxe en général
-<a href="http://wiki.mbirth.de/know-how/software/ipxe-network-boot.html" target="_blank">Ressources sur la mise en place de menus avancés</a>
+* [Menu et le fonctionnement d'ipxe en général](http://wiki.mbirth.de/know-how/software/ipxe-network-boot.html)
+* [Gérer la conf en php](http://brandon.penglase.net/index.php?title=PXE_Booting_and_Utilities_Menu) 
+Ce Site expliquae la conf de A à Z et regorge d'exemplesutiles.
+* [Le top : Gestion de l'ensemble sous php avec support de l'authentification et avec des fonctions](https://github.com/skunkie/ipxe-phpmenu/blob/master/README.md). Il s'agit d'un dépot github.
+C'est exactement quelque chose de ce type qu'il nous faut, il suffit d'adapter à la marge.
 
-* Gérer la conf en php <a href="http://brandon.penglase.net/index.php?title=PXE_Booting_and_Utilities_Menu" target="_blank">Site expliquant la conf de A à Z et regorgeant d'exemples</a>
-
-
-* Gestion de l'ensemble sous php avec support de l'authentification et avec des fonctions<a href="https://github.com/skunkie/ipxe-phpmenu/blob/master/README.md" target="_blank">Dépot github du deéveloppeur de la solution</a>
- 
-<b>C'est exactement quelque chose de ce type qu'il nous faut !</b>
-
-Attention, certains options de compilations sont obligatoires pour que cela fonctionne :
+Attention, certaines options de compilations sont obligatoires pour que cela fonctionne :
 
 * PARAM_CMD
 * CONSOLE_FRAME BUFFER
@@ -79,6 +74,8 @@ Attention, certains options de compilations sont obligatoires pour que cela fonc
 Lien direct : 
 [https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/PARAM_CMD:=1&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&
 ](https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/PARAM_CMD:=1&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&)
+
+**Les versions debian du paquet ne semblent pas comporter ces options, il faudra donc faire sans le paquet debian**
 
 #### Le cas de l'installation de windows via ipxe :
 * créer le dossier `/var/www/se3/ipxe` et créer un fichier minimal `boot.php` sur ce modèle : 
@@ -149,5 +146,4 @@ On peut donc envisager de complètement séparer le  nouveau module du module cl
 Donc :
 
 - Création d'un paquet se3-ipxe remplaçant les fonctionnalités de se3-clonage
-- Création des paquets se3-client-*  au fur et à mesure. 
-
+- Création des paquets se3-client-*  au fur et à mesure.
