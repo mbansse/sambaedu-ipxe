@@ -62,16 +62,23 @@ La syntaxe change pas mal par rapport à pxelinux.
 * Menu et le fonctionnement d'ipxe en général
 <a href="http://wiki.mbirth.de/know-how/software/ipxe-network-boot.html" target="_blank">Ressources sur la mise en place de menus avancés</a>
 
-* Gérer la conf en php <a href="
-http://brandon.penglase.net/index.php?title=PXE_Booting_and_Utilities_Menu" target="_blank">
-Site expliquant la conf de A à Z et regorgeant d'exemples</a>
+* Gérer la conf en php <a href="http://brandon.penglase.net/index.php?title=PXE_Booting_and_Utilities_Menu" target="_blank">Site expliquant la conf de A à Z et regorgeant d'exemples</a>
 
 
-* Gestion de l'ensemble sous php avec support de l'authentification et avec des fonctions<a href="
-https://github.com/skunkie/ipxe-phpmenu/blob/master/README.md" target="_blank">
-Dépot github du deéveloppeur de la solution</a>
+* Gestion de l'ensemble sous php avec support de l'authentification et avec des fonctions<a href="https://github.com/skunkie/ipxe-phpmenu/blob/master/README.md" target="_blank">Dépot github du deéveloppeur de la solution</a>
+ 
 <b>C'est exactement quelque chose de ce type qu'il nous faut !</b>
 
+Attention, certains options de compilations sont obligatoires pour que cela fonctionne :
+
+* PARAM_CMD
+* CONSOLE_FRAME BUFFER
+* CONSOLE_CMD
+* Clavier fr (pas obligatoire mais mieux ;))
+
+Lien direct : 
+[https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/PARAM_CMD:=1&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&
+](https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.lkrn&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/PARAM_CMD:=1&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&)
 
 #### Le cas de l'installation de windows via ipxe :
 * créer le dossier `/var/www/se3/ipxe` et créer un fichier minimal `boot.php` sur ce modèle : 
