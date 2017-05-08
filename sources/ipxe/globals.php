@@ -4,12 +4,13 @@ header("Content-type: text/plain");
 echo "#!ipxe\n";
 
 if (!isset($_POST['username']) || !isset($_POST['password'])) {
-    exit();
-}
+    //$pass = "ok"; 
+	exit();
+    }
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$url      = "http://{$_SERVER["SERVER_ADDR"]}:{$_SERVER["SERVER_PORT"]}/";
+$url      = "http://{$_SERVER["SERVER_ADDR"]}:{$_SERVER["SERVER_PORT"]}/ipxe/";
 $header   = "menu Preboot eXecution Environment\n";
 $access   = null;
 $index    = 0;

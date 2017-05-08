@@ -19,16 +19,16 @@ function authenticated() {
     return $authenticated;
 }
 
-function title($name, $accesses) {
+function title($name, $accesses, $categorie) {
     global $access;
-    if (strpos($accesses, $access) !== False) {
+    if (strpos($accesses, $access) !== False && file_exists($categorie)) {
         # the max number of characters for resolution 1024 x 768 is 107
         $total_length = 107;
         $name_length = strlen($name);
         $start = intval(($total_length - $name_length) / 2);
         $end = $total_length - $start - $name_length;
         $title = str_repeat("-", $start) . $name . str_repeat("-", $end);
-        echo "item --gap -- {$title}\n";
+        echo "item --gap -- {$title}\n"; 
     }
 }
 
@@ -43,7 +43,7 @@ function item($item_name, $item, $ipxe_file, $accesses) {
     global $entries;
     global $url;
     global $access;
-    if (strpos($accesses, $access) !== False) {
+    if (strpos($accesses, $access) !== False && file_exists($ipxe_file)) {
         $i = hotkey($item);
         echo "item --key {$i} {$item} ({$i}) {$item_name}\n";
         $i = ":{$item}\nchain --replace --autofree {$url}{$ipxe_file}##params";
