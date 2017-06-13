@@ -51,7 +51,14 @@ En version Stretch, le paquet est à jour :
 
 * [Version kpxe ou undionly avec les bonnes options permettant le boot ipxe sur les anciennes machines (chainload)](https://rom-o-matic.eu/build.fcgi?BINARY=ipxe.kpxe&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=&general.h/PARAM_CMD:=1&CONSOLE_CMD:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&)
 
+* [Version undionly.kpxe avec les bonnes options permettant le boot ipxe sur les  vm (chainload)](https://rom-o-matic.eu/build.fcgi?BINARY=undionly.kpxe&BINDIR=bin&REVISION=master&DEBUG=&EMBED.00script.ipxe=%23%21ipxe%0Aset%20user-class%20se3%0Aautoboot&general.h/PXE_STACK:=1&general.h/PXE_MENU:=1&general.h/SANBOOT_PROTO_ISCSI:=1&general.h/PARAM_CMD:=1&general.h/CONSOLE_CMD:=1&console.h/CONSOLE_PCBIOS:=1&console.h/CONSOLE_FRAMEBUFFER:=1&console.h/KEYBOARD_MAP=fr&branding.h/PRODUCT_NAME=se3&
 
+pour pouvoir booter automatiquement y compris sur les machines ayant déjà un bios ipxe, comme par exemple les vm qemu/proxmox, il faut pouvoir distinguer les deux qui s'enchainent. On utilise pour cela l'option user-agent C'est fait avec un script embarqué dans l'image, et la configuration du dhcp
+```
+#!ipxe
+set user-class se3
+autoboot
+```
 ### Le fichier de conf ipxe
 
 De nombreuse possibilités sont offertes, comme le support des variables, la creéation de menu graphiques, etc.....
