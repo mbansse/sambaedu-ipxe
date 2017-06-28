@@ -110,7 +110,8 @@ boot
 
 Il s'agit de la configuration minimale, la page `boot.php` récupère l'adresse mac et peut donc servir des fichier ipxe personnalisés, cela sera l'objectif des nouveaux paquets.
 
-
+## Installation client lourds (sans disque)
+La methode "sanhook" + "wimboot" + "samba" ne fonctionne pas, l'installation plante à la fin. En revanche la méthode "sanhook" + "cdrom" fonctionne parfaitement. 
 
 
 # Notes, modifications à envisager : 
