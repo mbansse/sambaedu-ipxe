@@ -110,8 +110,21 @@ boot
 
 Il s'agit de la configuration minimale, la page `boot.php` récupère l'adresse mac et peut donc servir des fichier ipxe personnalisés, cela sera l'objectif des nouveaux paquets.
 
-## Installation client lourds (sans disque)
-La methode "sanhook" + "wimboot" + "samba" ne fonctionne pas, l'installation plante à la fin. En revanche la méthode "sanhook" + "cdrom" fonctionne parfaitement. 
+## installation W10
+il est possible de personnaliser `unattend.xml` sans avoir à refaire le winpe avec `initrd ....`. La seule chose demandant une intervention sur le winpe est l'ajout des drivers des cartes réseau `dism ....`
+
+## Installation client lourds W10 (sans disque)
+La methode "sanhook" + "wimboot" + "samba" ne fonctionne pas, l'installation plante à la fin. En revanche la méthode "sanhook" + "cdrom" fonctionne parfaitement si le cdrom est en local. Le problème est de pouvoir booter sur un cdrom distant... Il faut donc créer une cible iscsi avec un disque bootable contenant l'arborescence d'installation (exactement comme si c'était un disque usb)
+
+### Méthode ultra-basique : 
+- creer un disque de 8Go, partition ntfs active,
+- copier les fichiers de l'iso dessus...
+C'est tout ! (du moins sur une vm...)
+### Plus évolué : 
+Modifier le winpe (boot.wim) pour avoir les drivers reseau, des personnalisations.
+
+
+Pour le boot il suffit de faire `sanboot iscsi:xxxxxxxx`. Le boot est ultra-rapide (sur une vm !). A tester sur un vrai PC avec du réseau 100 mb/s...
 
 
 # Notes, modifications à envisager : 
