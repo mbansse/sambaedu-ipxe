@@ -125,6 +125,14 @@ Modifier le winpe (boot.wim) pour avoir les drivers reseau, des personnalisation
 
 
 Pour le boot il suffit de faire `sanboot iscsi:xxxxxxxx`. Le boot est ultra-rapide (sur une vm !). A tester sur un vrai PC avec du réseau 100 mb/s...
+## Pour aller plus loin :
+l'idée est d'automatiser la création des cibles iscsi au boot : le script php va 
+- soit creer un zvol `zfs create -V` et booter sur le disque d'install
+- soit cloner un template déjà installé `zfs clone template@origine newmachine` et le booter
+- soit booter le disque déjà existant
+- soit faire un rollback
+
+Cela suppose que se3 puisse lister et agir sur les luns distants : il faut utiliser targetd https://github.com/open-iscsi/targetd et libstorage et https://github.com/ClusterHQ/pyzfs/tree/master/libzfs_core
 
 
 # Notes, modifications à envisager : 
