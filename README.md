@@ -135,6 +135,8 @@ l'idée est d'automatiser la création des cibles iscsi au boot : le script php 
 
 Cela suppose que se3 puisse lister et agir sur les luns distants : il faut utiliser targetd https://github.com/open-iscsi/targetd et libstorage et https://github.com/ClusterHQ/pyzfs/tree/master/libzfs_core
 
+ou alors mieux : Monter un NAS Freenas et utiliser l'API freenas http://api.freenas.org/
+
 
 # Notes, modifications à envisager : 
 
