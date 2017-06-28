@@ -112,9 +112,10 @@ Il s'agit de la configuration minimale, la page `boot.php` récupère l'adresse 
 
 ## installation W10
 il est possible de personnaliser `unattend.xml` sans avoir à refaire le winpe avec `initrd ....`. La seule chose demandant une intervention sur le winpe est l'ajout des drivers des cartes réseau `dism ....`
+La methode `sanboot` ci-dessous est beaucoup plus rapide que le partage samba. Mais il faut un NAS...
 
 ## Installation client lourds W10 (sans disque)
-La methode "sanhook" + "wimboot" + "samba" ne fonctionne pas, l'installation plante à la fin. En revanche la méthode "sanhook" + "cdrom" fonctionne parfaitement si le cdrom est en local. Le problème est de pouvoir booter sur un cdrom distant... Il faut donc créer une cible iscsi avec un disque bootable contenant l'arborescence d'installation (exactement comme si c'était un disque usb)
+La methode "sanhook" + "wimboot" + "samba" ne fonctionne pas, l'installation plante à la fin. En revanche la méthode "sanhook" + "cdrom" fonctionne parfaitement si le cdrom est en local. Le problème est de pouvoir booter sur un cdrom distant... Il faut donc créer une cible iscsi avec un disque bootable contenant l'arborescence d'installation (exactement comme si c'était un disque usb) : méthode `sanboot`
 
 ### Méthode ultra-basique : 
 - creer un disque de 8Go, partition ntfs active,
