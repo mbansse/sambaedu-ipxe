@@ -124,6 +124,10 @@ C'est tout ! (du moins sur une vm...)
 ### Plus évolué : 
 Modifier le winpe (boot.wim) pour avoir les drivers reseau, des personnalisations.
 
+### Configuration spécifique du poste diskless : 
+- **attention** il faut démarrer le service iscsi juste après l'installation sinon le poste plante à la moindre modif réseau ( les disques se deconnectent)
+- il n'est pas possible d'activer Netbios sur la carte du boot iscsi! Ceci rend impossible la mise au domaine du poste en mode NT... Il faut donc une carte réseau dédiée pour le iscsi (configurée en statique ou en dhcp sans passerelle par défaut avec une metrique tres haute), et une carte pour le LAN. Le souci c'est qu'il faut que le se3 fournisse le dhcp ipxe au boot sur la carte iscsi et le reseau sur l'autre... 
+
 
 Pour le boot il suffit de faire `sanboot iscsi:xxxxxxxx`. Le boot est ultra-rapide (sur une vm !). A tester sur un vrai PC avec du réseau 100 mb/s...
 ## Pour aller plus loin :
