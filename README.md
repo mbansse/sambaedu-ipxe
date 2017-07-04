@@ -84,7 +84,7 @@ Lien direct :
 
 **Les versions debian du paquet ne semblent pas comporter ces options, il faudra donc faire sans le paquet debian**
 
-#### Le cas de l'installation de windows via ipxe :
+#### Le cas de l'installation de windows via ipxe et wimboot :
 * créer le dossier `/var/www/se3/ipxe` et créer un fichier minimal `boot.php` sur ce modèle : 
 ```
 <?php
@@ -96,22 +96,37 @@ Lien direct :
    
     echo "#!ipxe
 # fichier pour $mac
-set boot-url http://$ipse3
-kernel ${boot-url}/winpe/wimboot
-initrd ${boot-url}/winpe/boot/bcd BCD
-initrd ${boot-url}/winpe/boot/boot.sdi boot.sdi
-initrd ${boot-url}/winpe/sources/boot.wim boot.wim
+set boot-url http://$ipse3/ipxe/
+kernel ${boot-url}/W10/wimboot
+initrd ${boot-url}/w10/boot/install.bat install.bat
+initrd ${boot-url}/w10/boot/winpeshl.ini winpeshl.ini
+initrd ${boot-url}/w10/boot/bcd BCD
+initrd ${boot-url}/w10/boot/boot.sdi boot.sdi
+initrd ${boot-url}/w10/sources/boot.wim boot.wim
 boot
     "; 
 ?>
 ```
-* créer l'arborescence de boot wim dans `/var/www/winpe`, en copiant wimboot depuis http://ipxe.org/wimboot, et les wims obtenus avec les outils Microsoft MDT ou extraits d'une ISO Windows
-* eventuellement il est possible d'utiliser le partage `\\se3\install\os` pour mettre les fichiers windows nécessaires aux stades suivants de l'installation windows
+* créer l'arborescence de boot wim dans `/var/www/se3/ipxe/W10`, en copiant wimboot depuis http://ipxe.org/wimboot, et les wims obtenus avec les outils Microsoft ADK ou extraits d'une ISO Windows
+* Utiliser le partage `\\se3\install\os` pour mettre les fichiers windows nécessaires aux stades suivants de l'installation windows : 
+```
+mount W10.iso /media/cdrom
+mkdir -p /var/se3/unattended/install/os/W10
+cp -a /media/cdrom/* /var/se3/unattended/install/W10/
+```
+on peut ensuite faire des liens symboliques dans le dossier `/var/www/se3/ipxe/W10` pour les fichiers boot.wim et autres.
+
 
 Il s'agit de la configuration minimale, la page `boot.php` récupère l'adresse mac et peut donc servir des fichier ipxe personnalisés, cela sera l'objectif des nouveaux paquets.
 
 ## installation W10
-il est possible de personnaliser `unattend.xml` sans avoir à refaire le winpe avec `initrd ....`. La seule chose demandant une intervention sur le winpe est l'ajout des drivers des cartes réseau `dism ....`
+il est possible de personnaliser `unattend.xml` sans avoir à refaire le winpe. La seule chose demandant une intervention sur le winpe est l'ajout des drivers des cartes réseau `dism ....` Attention les drivers doivent être mis dans les 2 index du wim : winpe et setup64 ?
+
+Pour génerer les fichiers unattend.xml on peut utilsier un outil en ligne : http://windowsafg.no-ip.org/win10x86_x64.html infiniment plus simple que l'outils microsoft... On peut configurer ce ficihier pour qu'il lance directement l'intégration se3.
+
+ce ficiher sera lancé par winpe avec la commande `setup.exe /unattend:z:\os\W10\unattend.xml` danss le `install.bat`
+
+**remarque**
 La methode `sanboot` ci-dessous est beaucoup plus rapide que le partage samba. Mais il faut un NAS...
 
 ## Installation client lourds W10 (sans disque)
