@@ -198,3 +198,11 @@ Donc :
 
 - Création d'un paquet se3-ipxe remplaçant les fonctionnalités de se3-clonage
 - Création des paquets se3-client-*  au fur et à mesure.
+
+#  paquet basique
+
+- arborescence ipxe et wimboot statique (pas de téléchargement)
+- page boot.php minimale pour reconnaissance action associée à l'adresse mac. Fallback sur pxelinux classique.
+- page wimboot.php pour installation w10
+- page tftp_action_w10.php pour UI
+- instructions pour mise en place fichiers windows dans install
